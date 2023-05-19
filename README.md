@@ -1,6 +1,5 @@
 
-# Excel 
-
+# Excel Kata
 
 ## Requirements:
 
@@ -23,7 +22,9 @@ By implementing these features, the table in  **SolidJS**  will provide a user-f
 
 ## Iterations
 
-1.- Getting Started:
+Completed features that were implemented
+
+1.- Getting Started: :white_check_mark:
 
 Create a simple **SolidJS** + tailwindcss + typescript project, to setup the project manually, follow the instruction: [Tailwindcss - SolidJS](https://tailwindcss.com/docs/guides/solidjs)
 
@@ -33,5 +34,29 @@ Or you use a template:
 npx degit solidjs/templates/ts excel-app
 ```
 
+2.- Created a static JSX table in **SolidJS** and add basic styles that match excel visual appearance. :white_check_mark:
 
-2.- Create a static JSX table with solidjs
+    Delivered:
+    - Table_v1.jsx (with styles)
+
+3.- Added coumns resizing feature to the static table. :white_check_mark:
+
+    Delivered:
+    - Table_v2.tsx
+    - Table css with css updates
+
+
+4.- Added rows resizing feature to the static table. :white_check_mark:
+
+
+    Delivered:
+    - Tablev3.tsx
+    - Table css with css updates
+
+
+5.- Added Cancel (ESC) Feature to cancel column width/height modification. :white_check_mark:
+
+
+    Delivered:
+    - Tablev4.tsx
+    - Table css with css updates
