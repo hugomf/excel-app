@@ -41,9 +41,9 @@ const Table_v4 = () => {
   const handleRowMouseDown = (e: any, rowItem: any) => {
     e.preventDefault();
     
-    let rowResizable = {td: e.target.parentNode, rowIndex: rowItem.index};
+    let rowResizable = {td: e.target.parentNode, rowItem: rowItem};
     console.log("start row dragging");
-    setPrevRowHeight({index: rowItem.index, height: rowItem.height})
+    setPrevRowHeight(rowItem)
     setResizingRow(rowResizable);
     document.getElementsByTagName("body")[0].style.cursor = "row-resize";
 
@@ -52,14 +52,12 @@ const Table_v4 = () => {
   const handleRowMouseMove = (e: any) => {
     e.preventDefault();
 
-    
+ 
     if (resizingRow() != null) {
-
         let td      = resizingRow().td as HTMLElement;
         let height   =  e.pageY - td.offsetTop;
-        let rowIndex = resizingRow().rowIndex;
         setData(data().map((item) =>
-            item.id === rowIndex ? { ...item, height } : item
+            item.id === resizingRow().rowItem.id ? { ...item, height } : item
         ));
 
         
@@ -101,7 +99,7 @@ const Table_v4 = () => {
         setColData(colData().map(item =>
             item.name === colName ?  { ...item, width } : item
         ));
-
+      
     }
   } 
 
@@ -131,7 +129,7 @@ const Table_v4 = () => {
       if (resizingRow() != null) {
         handleRowMouseUp();
         setData(data().map(item =>
-          item.id === prevRowHeight().id ?  { ...item, width: prevRowHeight().height } : item
+          item.id === prevRowHeight().id ?  { ...item, height: prevRowHeight().height } : item
         ));
         setPrevRowHeight(null);
       }
